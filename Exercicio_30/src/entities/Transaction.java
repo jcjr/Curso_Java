@@ -48,25 +48,19 @@ public class Transaction {
 		this.accountNumber = accountNumber;
 	}
 
-	public String moneyPlace(double money) {
-		if(money <= 0.0) {
-			return "Please place money to deposit.";
-		} else {
+	public void cashDeposit(double money) {
+		if(money > 0.0) {
 			this.amount += money;
-			return "Sucessful deposit!";
 		}
 	}
 	
-	public String withdrawMoney(double money) {
-		if(this.amount <= 0.0) {
-			return "There isn't money on this account.";
-		} else {
-			this.amount -= money - 5.0;
-			return "successful withdrawal.";
+	public void withdrawMoney(double money) {
+		if(this.amount > 0.0) {
+			this.amount -= money + 5.0;
 		}
 	}
 	
 	public String toString() {
-		return accountNumber + ", Holder: " + name + ", Balance: $ " + amount;
+		return accountNumber + ", Holder: " + name + ", Balance: $ " + String.format("%.2f", amount);
 	}
 }

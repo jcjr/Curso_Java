@@ -14,21 +14,32 @@ public class Bank {
 		
 		System.out.print("Enter account number: ");
 		tr.setAccountNumber(sc.nextInt());
-		System.out.println();
 		System.out.print("Enter account holder: ");
-		tr.setName(sc.nextLine());
-		System.out.println();
+		tr.setName(sc.next());
+		
 		System.out.print("Is there any initial deposit [Y/N]? ");
 		char confirm = sc.next().charAt(0);
 		
 		if(Character.toUpperCase(confirm) == 'Y') {
-			
+			System.out.print("Enter initial deposit value: ");
+			tr.cashDeposit(sc.nextDouble());
+			System.out.println();
 		}
-		tr.setName(sc.nextLine());
 		
+		System.out.println("Account data:");
+		System.out.println("Acoount " + tr.toString());
+		System.out.println();
 		
+		System.out.print("Enter deposit value: ");
+		tr.cashDeposit(sc.nextDouble());	
+		System.out.println("Update Account data:");
+		System.out.println("Account " + tr.toString());
+		System.out.println();
 		
-		
+		System.out.print("Enter a withdraw value: ");
+		tr.withdrawMoney(sc.nextDouble());		
+		System.out.println("Update Account data:");
+		System.out.println("Account " + tr.toString());
 		
 		sc.close();
 	}
