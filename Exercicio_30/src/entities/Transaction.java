@@ -15,13 +15,13 @@ public class Transaction {
 	public Transaction(String name, int accountNumber, double amount) {
 		this.name = name;
 		this.accountNumber = accountNumber;
-		this.amount = amount;
+		deposit(amount);
 	}
 
 	public Transaction(Transaction transaction) {
 		this.name = transaction.name;
 		this.accountNumber = transaction.accountNumber;
-		this.amount = transaction.amount;
+		deposit(amount);
 	}
 
 	public String getName() {
@@ -36,19 +36,11 @@ public class Transaction {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
-		this.amount = amount;
-	}
-
 	public int getAccountNumber() {
 		return accountNumber;
 	}
-	
-	public void setAccountNumber(int accountNumber) {
-		this.accountNumber = accountNumber;
-	}
 
-	public void cashDeposit(double money) {
+	public void deposit(double money) {
 		if(money > 0.0) {
 			this.amount += money;
 		}
