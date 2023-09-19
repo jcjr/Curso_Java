@@ -31,6 +31,7 @@ public class DadosPessoas {
 			sc.nextLine();
 		}
 		
+		maxHeight = height[0];
 		minHeight = height[0];
 		
 		for(int i = 0; i < num; i++) {
@@ -41,10 +42,10 @@ public class DadosPessoas {
 			}
 			
 			if(gender[i] == 'M') {
-				countMan += 1;
+				countMan++;
 			} else {
 				avg += height[i];
-				countWoman += 1;
+				countWoman++;
 			}
 		}
 		
