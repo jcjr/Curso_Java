@@ -14,6 +14,7 @@ public class DadosPessoas {
 		double minHeight = 0.0;
 		double maxHeight = 0.0;
 		int countMan = 0;
+		int countWoman = 0;
 		
 		System.out.print("Quantas pessoas serao digitadas? ");
 		num = sc.nextInt();
@@ -22,11 +23,17 @@ public class DadosPessoas {
 		char[] gender = new char[num];
 		
 		for(int i = 0; i < num; i++) {
-			System.out.println("Altura da " +(i+1)+ "a pessoa: ");
+			System.out.println("Dados da " +(i+1)+ "a. pessoa:");
+			System.out.print("Altura: ");
 			height[i] = sc.nextDouble();
-			System.out.println("Genero da " +(i+1)+ "a pessoa: ");
+			System.out.print("Gênero: ");
 			gender[i] = sc.next().charAt(0);
-			
+			sc.nextLine();
+		}
+		
+		minHeight = height[0];
+		
+		for(int i = 0; i < num; i++) {
 			if(height[i] > maxHeight) {
 				maxHeight = height[i];
 			} else if(height[i] < minHeight) {
@@ -37,15 +44,15 @@ public class DadosPessoas {
 				countMan += 1;
 			} else {
 				avg += height[i];
+				countWoman += 1;
 			}
 		}
 		
-		System.out.printf("Menor altura = %.2f\n", minHeight);
+		System.out.printf("\nMenor altura = %.2f\n", minHeight);
 		System.out.printf("Maior altura = %.2f\n", maxHeight);
-		System.out.printf("Media das alturas das mulheres = %.2f\n", (avg/num));
-		System.out.println("NÃºmero de homens = " + countMan);
+		System.out.printf("Média das alturas (Mulheres) = %.2f\n", (avg/countWoman));
+		System.out.println("Número de homens = " + countMan);
 		
 		sc.close();
 	}
-
 }
