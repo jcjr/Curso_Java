@@ -57,6 +57,19 @@ public class Heranca {
 		Account acc8 = new BusinessAccount(1008, "Henrique", 1000.0, 500.0);
 		acc8.withdraw(200.0);
 		System.out.println(acc8.getBalance());
+		
+		System.out.println();
+		System.out.println();
+		
+		// Terceira parte do exercício
+		
+		Account x = new Account(1009, "Sara", 1000.0);
+		Account y = new SavingsAccount(1010, "Roberto", 1000.0, 0.01);
+		
+		x.withdraw(50.0);
+		y.withdraw(50.0);
+		
+		System.out.println(x.getBalance());
+		System.out.println(y.getBalance());
 	}
-
 }
