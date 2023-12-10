@@ -1,6 +1,9 @@
 package entities;
 
-public class SavingsAccount extends Account {
+//Colocando "final" após a cláusula "public" não permite que a classe
+// seja herdada para uma sub-classe, ou seja, não é possível extendê-la.
+// Neste caso em algumas situações permite que seja executado mais rápido.
+public /*final*/ class SavingsAccount extends Account {
 	
 	private Double interestRate;
 	
@@ -25,8 +28,11 @@ public class SavingsAccount extends Account {
 		balance += balance * interestRate;
 	}
 
+	// Colocando "final" após a cláusula "public" não permite que o método
+	// seja sobreposto em uma sub-classe herdada desta classe. Neste caso
+	// em algumas situações permite que seja executado mais rápido.
 	@Override
-	public void withdraw(Double amount) {
+	public /*final*/ void withdraw(Double amount) {
 		balance -= amount;
 	}
 }
