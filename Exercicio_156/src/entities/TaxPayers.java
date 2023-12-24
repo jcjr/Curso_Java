@@ -31,9 +31,7 @@ public abstract class TaxPayers {
 		this.anualIncome = anualIncome;
 	}
 	
-	public Double taxPayment() {
-		return anualIncome;
-	}
+	public abstract Double taxPayment();
 	
 	public String toString() {
 		return getName() + ": $ " + String.format("%.2f", taxPayment());
