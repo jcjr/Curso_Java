@@ -31,7 +31,6 @@ public class Program {
 			System.out.print("Enter amount for withdraw: ");
 			Double withdraw = sc.nextDouble();
 			acc.withdraw(withdraw);
-			
 			System.out.println("New balance: " + acc.getBalance());
 			
 		} catch (RuntimeException e){
