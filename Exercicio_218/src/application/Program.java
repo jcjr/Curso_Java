@@ -22,7 +22,7 @@ public class Program {
 		}
 		
 		System.out.println();
-		c
+
 		File[] files = path.listFiles(File::isFile);
 		System.out.println("FILES: ");
 		for(File file : files) {
