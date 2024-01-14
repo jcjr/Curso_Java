@@ -25,8 +25,7 @@ public class Program {
 			sc = new Scanner(file);
 			while (sc.hasNextLine()) {
 				String[] word = sc.nextLine().split(",");
-				Product prod = new Product(word[0], Double.parseDouble(word[1]), Integer.parseInt(word[2]));
-				list.add(prod);
+				list.add(new Product(word[0], Double.parseDouble(word[1]), Integer.parseInt(word[2])));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -34,9 +33,9 @@ public class Program {
 			System.out.println("Copiado lista de produtos para memória.");
 		}
 		
-		if (new File("c:\\temp\\out").mkdir()) {
+		if (new File("c:\\temp\\out").mkdir() || new File("c:\\temp\\out").exists()) {
 			
-			try (BufferedWriter bw = new BufferedWriter(new FileWriter("c:\\temp\\out\\summary.csv", true))) {
+			try (BufferedWriter bw = new BufferedWriter(new FileWriter("c:\\temp\\out\\summary.csv"))) {
 				for (Product ls : list) {
 					bw.write(ls.toString());
 					bw.newLine();
