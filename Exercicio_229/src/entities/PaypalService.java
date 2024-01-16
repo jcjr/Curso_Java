@@ -1,6 +1,6 @@
-package model.entities;
+package entities;
 
-import model.entities.services.OnlinePaymentService;
+import services.OnlinePaymentService;
 
 public class PaypalService implements OnlinePaymentService {
 	

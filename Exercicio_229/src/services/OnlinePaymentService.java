@@ -1,4 +1,4 @@
-package model.entities.services;
+package services;
 
 public interface OnlinePaymentService {
 
