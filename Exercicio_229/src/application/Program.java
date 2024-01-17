@@ -1,7 +1,7 @@
 package application;
 
+import java.text.ParseException;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Scanner;
@@ -9,19 +9,21 @@ import java.util.Scanner;
 import entities.Contract;
 import entities.Installment;
 import services.ContractService;
+import services.PaypalService;
 
 public class Program {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ParseException {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		
 		System.out.println("Enter contract data:");
-		System.out.println("Number: ");
-		Integer number = sc.nextInt();		
-		System.out.println("Date (dd/MM/yyyy): ");
+		System.out.print("Number: ");
+		Integer number = sc.nextInt();	
+		sc.nextLine();
+		System.out.print("Date (dd/MM/yyyy): ");
 		LocalDate date = LocalDate.parse(sc.nextLine(), format);
 		System.out.print("Contract value: ");
 		Double totalValue = sc.nextDouble();
@@ -31,7 +33,7 @@ public class Program {
 		System.out.print("Enter installment quantity: ");
 		Integer quant = sc.nextInt();
 		
-		ContractService contractService = new ContractService(null);
+		ContractService contractService = new ContractService(new PaypalService());
 		
 		contractService.processContract(contract, quant);
 		

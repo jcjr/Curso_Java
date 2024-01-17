@@ -51,8 +51,4 @@ public class Contract {
 		return installmments;
 	}
 
-	public double processContract(Contract contract, Integer months) {
-		return 0.0;
-	}
-
 }
