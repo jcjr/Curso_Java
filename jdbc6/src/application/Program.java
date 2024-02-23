@@ -30,7 +30,7 @@ public class Program {
 				throw new SQLException("Fake error!!!");
 			}//*/
 			
-			/*
+			//*
 			int rows2 = st.executeUpdate("UPDATE seller SET "
 					+ "BaseSalary = 3090 WHERE DepartmentId = 2");
 			//*/
@@ -38,7 +38,7 @@ public class Program {
 			conn.commit();
 			
 			System.out.println("Done! Rows effected: " + rows1);
-			//System.out.println("Done! Rows effected: " + rows2);
+			System.out.println("Done! Rows effected: " + rows2);
 			
 		} catch (SQLException e) {
 			
@@ -46,7 +46,7 @@ public class Program {
 				conn.rollback();
 				throw new DbException("Transaction rolled back! Caused by: " + e.getMessage());
 			} catch (SQLException e1) {
-				throw new DbException("Error trying to rollback! Caused br: " + e.getMessage());
+				throw new DbException("Error trying to rollback! Caused by: " + e1.getMessage());
 			}
 			
 		} finally {
