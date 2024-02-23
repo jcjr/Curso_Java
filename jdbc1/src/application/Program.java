@@ -10,6 +10,7 @@ public class Program {
 		
 		Connection conn = DB.getConnection();
 		DB.closeConnection();
+		System.out.println("Conectado!");
 
 	}
 
