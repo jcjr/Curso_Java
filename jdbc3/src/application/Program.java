@@ -23,27 +23,24 @@ public class Program {
 			conn = DB.getConnection();
 			pst = conn.prepareStatement("INSERT INTO seller " 
 					+ "(Name, Email, BirthDate, BaseSalary, DepartmentId) "
-					+ "VALUES "
-					+ "(?, ?, ?, ?, ?)",
-					Statement.RETURN_GENERATED_KEYS);
+					+ "VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
 
 			pst.setString(1, "Eric Rian");
-			pst.setString(2, "Eric@gmail.com");
+			pst.setString(2, "ericrian@gmail.com");
 			pst.setDate(3, new java.sql.Date(sdf.parse("04/04/2004").getTime()));
 			pst.setDouble(4, 1500.0);
 			pst.setInt(5, 1);
 
-			//System.out.println("Done! Rows affected: " + pst.executeUpdate());
+			// System.out.println("Done! Rows affected: " + pst.executeUpdate());
 			if (pst.executeUpdate() > 0) {
 				ResultSet rs = pst.getGeneratedKeys();
-				while(rs.next()) {
+				while (rs.next()) {
 					System.out.println("Done! id = " + rs.getInt(1));
 				}
 			} else {
 				System.out.println("No rown affected!");
 			}
-			
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (ParseException e) {

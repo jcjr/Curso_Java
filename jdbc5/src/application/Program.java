@@ -18,11 +18,13 @@ public class Program {
 			conn = DB.getConnection();
 			st = conn.prepareStatement(
 					"DELETE FROM department "
-					+ "WHERE "
-					+ "Id = ?");
+					+ "WHERE Id = ?"); //+ "WHERE Name = ?");
+			
 			st.setInt(1, 2);
+			//st.setString(1, "D2");
 			
 			System.out.println("Done! Rows effected: " + st.executeUpdate());
+			
 		} catch (SQLException e) {
 			throw new DBIntegrityException(e.getMessage());
 		} finally {
