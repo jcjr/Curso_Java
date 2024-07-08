@@ -8,6 +8,4 @@ public class DBIntegrityException extends RuntimeException{
 		super(msg);
 	}
 	
-	
-
 }
